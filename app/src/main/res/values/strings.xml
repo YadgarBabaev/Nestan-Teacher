@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Teacher</string>
+
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+    <string name="action_add" translatable="false">New Word</string>
+    <string name="action_del" translatable="false">Delete Word</string>
+    <string name="alphabet">Алфавит</string>
+    <string name="color">Түстөр</string>
+    <string name="animals">Жаныбарлар</string>
+    <string name="things">Буюмдар</string>
+    <string name="body_parts">Адамдын мүчөлөрү</string>
+    <string name="clothes">Кийимдер</string>
+    <string name="fruits">Жашылча-жемиштер</string>
+    <string name="dictionary">Сөздүк</string>
+</resources>

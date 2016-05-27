@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Teacher</string>
+    <string name="action_add"></string>
+    <string name="animals">Животные</string>
+    <string name="clothes">Одежда</string>
+    <string name="color">Цвета</string>
+    <string name="dictionary">Словарь</string>
+    <string name="fruits">Овощи и фрукты</string>
+    <string name="things">Вещи</string>
+    <string name="alphabet">Алфавит</string>
+    <string name="body_parts">Органы тела</string>
+</resources>

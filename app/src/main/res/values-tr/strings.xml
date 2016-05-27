@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Teacher</string>
+    <string name="action_add"></string>
+    <string name="animals">Hayvanlar</string>
+    <string name="clothes">Giyim</string>
+    <string name="color">Renkler</string>
+    <string name="dictionary">Sözlük</string>
+    <string name="fruits">Meyve sebze</string>
+    <string name="things">Işler</string>
+    <string name="alphabet">Alfabe</string>
+    <string name="body_parts">Vücut parçaları</string>
+</resources>

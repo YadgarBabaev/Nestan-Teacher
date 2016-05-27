@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="alfavit">
+        <item>А</item>
+        <item>Б</item>
+        <item>В</item>
+        <item>Г</item>
+        <item>Д</item>
+        <item>Ж</item>
+        <item>З</item>
+        <item>И</item>
+        <item>Й</item>
+        <item>К</item>
+        <item>Л</item>
+        <item>М</item>
+        <item>Н</item>
+        <item>Ң</item>
+        <item>О</item>
+        <item>Ө</item>
+        <item>П</item>
+        <item>Р</item>
+        <item>С</item>
+        <item>Т</item>
+        <item>У</item>
+        <item>Ү</item>
+        <item>Ф</item>
+        <item>Х</item>
+        <item>Ц</item>
+        <item>Ч</item>
+        <item>Ш</item>
+        <item>Щ</item>
+        <item>Ь</item>
+        <item>Ы</item>
+        <item>Ъ</item>
+        <item>Э</item>
+        <item>Ю</item>
+        <item>Я</item>
+    </string-array>
+
+    <string-array name="names">
+        <item>Арстан</item>
+        <item>Бегемот</item>
+        <item>Велосипед</item>
+        <item>Геопард</item>
+        <item>Дарбыз</item>
+        <item>Жылдыз</item>
+        <item>Зебра</item>
+        <item>Икра</item>
+        <item>Йемен</item>
+        <item>Кит</item>
+        <item>Лама</item>
+        <item>Мандарин</item>
+        <item>Нота</item>
+        <item>Ң</item>
+        <item>От</item>
+        <item>Өтүк</item>
+        <item>Пылесос</item>
+        <item>Ракета</item>
+        <item>Саат</item>
+        <item>Темир</item>
+        <item>Уйку</item>
+        <item>Үкү</item>
+        <item>Футбол</item>
+        <item>Хаски</item>
+        <item>Цой</item>
+        <item>Чочко</item>
+        <item>Ширенке</item>
+        <item>Щука</item>
+        <item>Ь</item>
+        <item>Ысык-Көл</item>
+        <item>Ъ</item>
+        <item>Эчки</item>
+        <item>Югославия</item>
+        <item>Якутия</item>
+    </string-array>
+
+
+    <string-array name="images">
+        <item>@drawable/a</item>
+        <item>@drawable/b</item>
+        <item>@drawable/v</item>
+        <item>@drawable/g</item>
+        <item>@drawable/d</item>
+        <item>@drawable/j</item>
+        <item>@drawable/z</item>
+        <item>@drawable/i</item>
+        <item>@drawable/iy</item>
+        <item>@drawable/k</item>
+        <item>@drawable/l</item>
+        <item>@drawable/m</item>
+        <item>@drawable/n</item>
+        <item>@drawable/nn</item>
+        <item>@drawable/o</item>
+        <item>@drawable/oo</item>
+        <item>@drawable/p</item>
+        <item>@drawable/r</item>
+        <item>@drawable/s</item>
+        <item>@drawable/t</item>
+        <item>@drawable/u</item>
+        <item>@drawable/uu</item>
+        <item>@drawable/f</item>
+        <item>@drawable/h</item>
+        <item>@drawable/ss</item>
+        <item>@drawable/ch</item>
+        <item>@drawable/sh</item>
+        <item>@drawable/ssh</item>
+        <item>@drawable/item1</item>
+        <item>@drawable/y</item>
+        <item>@drawable/item2</item>
+        <item>@drawable/e</item>
+        <item>@drawable/yu</item>
+        <item>@drawable/ya</item>
+    </string-array>
+
+</resources>

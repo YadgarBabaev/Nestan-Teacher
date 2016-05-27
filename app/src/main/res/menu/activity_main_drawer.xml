@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_alfavit"
+            android:icon="@android:drawable/ic_menu_sort_alphabetically"
+            android:title="@string/alphabet"/>
+        <item
+            android:id="@+id/nav_tustor"
+            android:title="@string/color"/>
+        <item
+            android:id="@+id/nav_janybarlar"
+            android:title="@string/animals"/>
+        <item
+            android:id="@+id/nav_buyumdar"
+            android:title="@string/things"/>
+        <item
+            android:id="@+id/nav_adamdyn_mucholoru"
+            android:title="@string/body_parts"/>
+        <item
+            android:id="@+id/nav_kiyimder"
+            android:title="@string/clothes"/>
+        <item
+            android:id="@+id/nav_jashylcha_jemishter"
+            android:title="@string/fruits"/>
+        <item
+            android:id="@+id/nav_dictionary"
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="@string/dictionary"/>
+        <!--<item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tools" />-->
+    </group>
+
+</menu>
