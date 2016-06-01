@@ -19,6 +19,8 @@ import com.android.teacher.fragments.FragmentHome;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    boolean returned = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,5 +102,18 @@ public class MainActivity extends AppCompatActivity
         fragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
+    }
+
+    @Override
+    public void onResume() {super.onResume();
+        if(returned){
+            finish();
+            startActivity(getIntent());
+        }
+    }
+
+    @Override
+    public void onPause() {super.onPause();
+        returned = true;
     }
 }

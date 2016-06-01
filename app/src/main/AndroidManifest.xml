@@ -34,5 +34,7 @@
         </activity>
         <activity android:name=".AddWord"
             android:screenOrientation="userPortrait" />
+        <activity android:name=".EditWord"
+            android:screenOrientation="userPortrait" />
     </application>
 </manifest>

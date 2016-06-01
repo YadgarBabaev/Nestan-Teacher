@@ -37,7 +37,7 @@ public class AddWord extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_word_layout);
+        setContentView(R.layout.word_activities_layout);
 
         img = (ImageButton) findViewById(R.id.selectImage);
         img.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +136,6 @@ public class AddWord extends ActionBarActivity {
             DbBackend dbBackend = new DbBackend(this);
             long ans = dbBackend.insert(kg, ru, tr, imageByteArray, soundByteArray, categoryId);
             if(ans > 0){
-                startActivity(new Intent(this, DictionaryMain.class));
                 finish();
             } else Toast.makeText(this, "Error occurred while data inserted", Toast.LENGTH_SHORT).show();
         }

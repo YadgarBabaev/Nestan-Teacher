@@ -6,6 +6,7 @@
 
     <string name="action_add" translatable="false">New Word</string>
     <string name="action_del" translatable="false">Delete Word</string>
+    <string name="action_edit" translatable="false">Edit Word</string>
     <string name="alphabet">Алфавит</string>
     <string name="color">Түстөр</string>
     <string name="animals">Жаныбарлар</string>
@@ -14,4 +15,9 @@
     <string name="clothes">Кийимдер</string>
     <string name="fruits">Жашылча-жемиштер</string>
     <string name="dictionary">Сөздүк</string>
+    <string-array name="spinner_array">
+        <item>кыргыз т.</item>
+        <item>русский</item>
+        <item>türkçe</item>
+    </string-array>
 </resources>

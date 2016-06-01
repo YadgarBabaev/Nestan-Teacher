@@ -1,10 +1,13 @@
 package com.android.teacher;
 
 import android.content.Intent;
+import android.graphics.RadialGradient;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,30 +15,56 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class DictionaryMain extends AppCompatActivity {
 
-    private ArrayAdapter<String> listAdapter;
-    String[] terms;
+    ArrayAdapter<String> listAdapter;
+    ListView itemList;
     int[] ids;
+    boolean returned = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dictionary_main);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        EditText filterText = (EditText) findViewById(R.id.editText);
-        ListView itemList = (ListView)findViewById(R.id.listView);
+        final EditText filterText = (EditText) findViewById(R.id.editText);
+        itemList = (ListView)findViewById(R.id.listView);
 
         DbBackend dbBackend = new DbBackend(DictionaryMain.this);
-        ArrayObject arrayObject= dbBackend.dictionaryWords();
-        terms = arrayObject.getWord();
+        final ArrayObject arrayObject= dbBackend.dictionaryWords();
         ids = arrayObject.getIds();
 
-        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, terms);
+        RadioGroup rg = (RadioGroup)findViewById(R.id.radioGroup);
+        assert rg != null;
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.lang1:
+                        filler(arrayObject.getKgList());
+                        break;
+                    case R.id.lang2:
+                        filler(arrayObject.getRuList());
+                        break;
+                    case R.id.lang3:
+                        filler(arrayObject.getTrList());
+                        break;
+                }
+            }
+        });
 
-        assert itemList != null;
-        itemList.setAdapter(listAdapter);
+        rg.check(R.id.lang1);
         itemList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -75,17 +104,39 @@ public class DictionaryMain extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_add) {
-            startActivity(new Intent(this, AddWord.class));
+        if(id == android.R.id.home)
             finish();
+
+        if(id == R.id.action_add) {
+            startActivity(new Intent(this, AddWord.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
-    public void onResume() {super.onResume();}
+    public void onResume() {super.onResume();
+        if(returned){
+            finish();
+            startActivity(getIntent());
+        }
+    }
 
     @Override
-    public void onPause() {super.onPause();}
+    public void onPause() {super.onPause();
+        returned = true;
+    }
+
+    @Override
+    public ActionBar getSupportActionBar() {
+        // Making getSupportActionBar() method to be @NonNull
+        ActionBar actionBar = super.getSupportActionBar();
+        if (actionBar == null) throw new NullPointerException("Action bar was not initialized");
+        return actionBar;
+    }
+
+    private void filler(String[] terms){
+        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, terms);
+        itemList.setAdapter(listAdapter);
+    }
 }

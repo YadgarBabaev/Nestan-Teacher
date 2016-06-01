@@ -21,10 +21,13 @@ import android.widget.TextView;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class DictionaryActivity extends AppCompatActivity {
 
     int dictionaryId;
+    MediaPlayer mp = new MediaPlayer();
+    String filePath = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +64,6 @@ public class DictionaryActivity extends AppCompatActivity {
             imageView.setImageBitmap(bitmap);
         }
 
-        String filePath = null;
         if(object.getSnd() != null){
             try {
                 String filename = String.valueOf(dictionaryId);
@@ -75,31 +77,33 @@ public class DictionaryActivity extends AppCompatActivity {
             }
         }
 
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         if(filePath != null){
-            final MediaPlayer mp = MediaPlayer.create(this, Uri.parse(filePath));
-            final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            assert fab != null;
             fab.setVisibility(View.VISIBLE);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(mp.isPlaying()) {
-                        mp.pause();
-                        fab.setImageResource(android.R.drawable.ic_media_play);
-                    } else {
-                        mp.start();
-                        fab.setImageResource(android.R.drawable.ic_media_pause);
-                    }
-                }
-            });
-            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    mp.stop();
-                    fab.setImageResource(android.R.drawable.ic_media_play);
-                }
-            });
         }
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    mp.reset();
+                    mp.setDataSource(filePath);
+                    mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                        @Override
+                        public void onPrepared(MediaPlayer mp) {mp.start();}
+                    });
+                    mp.prepareAsync();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mp.reset();
+            }
+        });
+
     }
 
     @Override
@@ -122,6 +126,10 @@ public class DictionaryActivity extends AppCompatActivity {
             case R.id.action_del:
                 AlertDialog diaBox = AskOption();
                 diaBox.show();
+                return true;
+            case R.id.action_edit:
+                startActivity(new Intent(this, EditWord.class).putExtra("DICTIONARY_ID", dictionaryId));
+                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);

@@ -23,6 +23,17 @@ public class DbBackend extends DbObject{
         return this.getDbConnection().insert("dictionary", null, values);
     }
 
+    public int update(int id, String kg, String ru, String tr, byte[] img, byte[] snd, int category){
+        ContentValues values = new ContentValues();
+        values.put("kg", kg);
+        values.put("ru", ru);
+        values.put("tr", tr);
+        values.put("img", img);
+        values.put("snd", snd);
+        values.put("cat_id", category);
+        return this.getDbConnection().update("dictionary", values, "id=" + id, null);
+    }
+
     public void delete(int id){
         String query = "Delete from dictionary where id = " + id;
         this.getDbConnection().execSQL(query);
@@ -32,24 +43,36 @@ public class DbBackend extends DbObject{
         String query = "Select * from dictionary order by kg";
         Cursor cursor = this.getDbConnection().rawQuery(query, null);
         ArrayList<String> wordTerms = new ArrayList<>();
+        ArrayList<String> wordRuTerms = new ArrayList<>();
+        ArrayList<String> wordTrTerms = new ArrayList<>();
         ArrayList<Integer> idTerms = new ArrayList<>();
         if(cursor.moveToFirst()){
             do{
-                String word = cursor.getString(cursor.getColumnIndexOrThrow("kg"));
+                String kg = cursor.getString(cursor.getColumnIndexOrThrow("kg"));
+                String ru = cursor.getString(cursor.getColumnIndexOrThrow("ru"));
+                String tr = cursor.getString(cursor.getColumnIndexOrThrow("tr"));
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-                wordTerms.add(word);
+
+                wordTerms.add(kg);
+                wordRuTerms.add(ru);
+                wordTrTerms.add(tr);
                 idTerms.add(id);
             } while(cursor.moveToNext());
         }
         cursor.close();
-        String[] words = new String[wordTerms.size()];
-        words = wordTerms.toArray(words);
+        String[] kgWords = new String[wordTerms.size()];
+        String[] ruWords = new String[wordTerms.size()];
+        String[] trWords = new String[wordTerms.size()];
+
+        kgWords = wordTerms.toArray(kgWords);
+        ruWords = wordRuTerms.toArray(ruWords);
+        trWords = wordTrTerms.toArray(trWords);
         int[] ret = new int[idTerms.size()];
         for (int i=0; i < ret.length; i++)
         {
             ret[i] = idTerms.get(i);
         }
-        return new ArrayObject(words, ret);
+        return new ArrayObject(kgWords, ruWords, trWords, ret);
     }
 //    public String[] dictionaryWords(){
 //        String query = "Select * from dictionary order by kg";
@@ -95,7 +118,8 @@ public class DbBackend extends DbObject{
             String tr = cursor.getString(cursor.getColumnIndexOrThrow("tr"));
             byte[] img = cursor.getBlob(cursor.getColumnIndexOrThrow("img"));
             byte[] snd = cursor.getBlob(cursor.getColumnIndexOrThrow("snd"));
-            quizObject = new WordObject(kg, ru, tr, img, snd);
+            int categ = cursor.getInt(cursor.getColumnIndexOrThrow("cat_id"));
+            quizObject = new WordObject(kg, ru, tr, img, snd, categ);
         }
         cursor.close();
         return quizObject;
@@ -122,6 +146,6 @@ public class DbBackend extends DbObject{
         {
             ret[i] = idTerms.get(i);
         }
-        return new ArrayObject(words, ret);
+        return new ArrayObject(words, null, null, ret);
     }
 }

@@ -7,13 +7,15 @@ public class WordObject {
     private String TR;
     private byte[] img;
     private byte[] snd;
+    private int cat;
 
-    public WordObject(String kg, String ru, String tr, byte[] img, byte[] snd) {
+    public WordObject(String kg, String ru, String tr, byte[] img, byte[] snd, int c_id) {
         this.KG = kg;
         this.RU = ru;
         this.TR = tr;
         this.img = img;
         this.snd = snd;
+        this.cat = c_id;
     }
 
     public String getWord() {return KG;}
@@ -35,4 +37,9 @@ public class WordObject {
     public byte[] getSnd(){return snd;}
 
 /*public void setSnd(byte[] snd){this.snd = snd;}*/
+
+    public int getCat() {return cat;}
+
+/*public void setCat(int c_id) {this.cat = c_id;}*/
+
 }

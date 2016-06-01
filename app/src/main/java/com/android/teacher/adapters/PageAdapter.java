@@ -29,7 +29,7 @@ public class PageAdapter extends FragmentPagerAdapter {
     private void setTitle(){
         DbBackend dbBackend = new DbBackend(context);
         ArrayObject array = dbBackend.getWordByCategory(id);
-        words = array.getWord();
+        words = array.getKgList();
         ids = array.getIds();
         title = new ArrayList<>(Arrays.asList(words));
     }

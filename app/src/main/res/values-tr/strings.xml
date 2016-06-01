@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Teacher</string>
-    <string name="action_add"></string>
     <string name="animals">Hayvanlar</string>
     <string name="clothes">Giyim</string>
     <string name="color">Renkler</string>
