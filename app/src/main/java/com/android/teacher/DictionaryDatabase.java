@@ -9,7 +9,6 @@ public class DictionaryDatabase extends SQLiteAssetHelper{
 
     public DictionaryDatabase(Context context) {
         super(context, DATABASE_NAMES, null, DATABASE_VERSION);
-        // TODO Auto-generated constructor stub
     }
 
 }

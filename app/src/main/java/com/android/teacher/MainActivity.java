@@ -1,4 +1,3 @@
-//TODO: edit word, dict.activity sound don't play 
 package com.android.teacher;
 
 import android.content.Intent;

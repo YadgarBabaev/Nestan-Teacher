@@ -6,6 +6,8 @@
         <item>В</item>
         <item>Г</item>
         <item>Д</item>
+        <item>Е</item>
+        <item>Ё</item>
         <item>Ж</item>
         <item>З</item>
         <item>И</item>
@@ -43,6 +45,8 @@
         <item>Велосипед</item>
         <item>Геопард</item>
         <item>Дарбыз</item>
+        <item>Е</item>
+        <item>Ё</item>
         <item>Жылдыз</item>
         <item>Зебра</item>
         <item>Икра</item>
@@ -70,7 +74,7 @@
         <item>Ысык-Көл</item>
         <item>Ъ</item>
         <item>Эчки</item>
-        <item>Югославия</item>
+        <item>Юла</item>
         <item>Якутия</item>
     </string-array>
 
@@ -81,6 +85,8 @@
         <item>@drawable/v</item>
         <item>@drawable/g</item>
         <item>@drawable/d</item>
+        <item>@drawable/e</item>
+        <item>@drawable/yo</item>
         <item>@drawable/j</item>
         <item>@drawable/z</item>
         <item>@drawable/i</item>
@@ -107,9 +113,47 @@
         <item>@drawable/item1</item>
         <item>@drawable/y</item>
         <item>@drawable/item2</item>
-        <item>@drawable/e</item>
+        <item>@drawable/ee</item>
         <item>@drawable/yu</item>
         <item>@drawable/ya</item>
     </string-array>
 
+    <string-array name="sounds">
+        <item>@raw/a110</item>
+        <item>@raw/a111</item>
+        <item>@raw/a112</item>
+        <item>@raw/a113</item>
+        <item>@raw/a114</item>
+        <item>@raw/a115</item>
+        <item>@raw/a116</item>
+        <item>@raw/a117</item>
+        <item>@raw/a118</item>
+        <item>@raw/a119</item>
+        <item>@raw/a120</item>
+        <item>@raw/a121</item>
+        <item>@raw/a122</item>
+        <item>@raw/a123</item>
+        <item>@raw/a124</item>
+        <item>@raw/a125</item>
+        <item>@raw/a126</item>
+        <item>@raw/a128</item>
+        <item>@raw/a129</item>
+        <item>@raw/a130</item>
+        <item>@raw/a131</item>
+        <item>@raw/a132</item>
+        <item>@raw/a133</item>
+        <item>@raw/a134</item>
+        <item>@raw/a135</item>
+        <item>@raw/a136</item>
+        <item>@raw/a138</item>
+        <item>@raw/a139</item>
+        <item>@raw/a140</item>
+        <item>@raw/a141</item>
+        <item>@raw/a142</item>
+        <item>@raw/a143</item>
+        <item>@raw/a144</item>
+        <item>@raw/a145</item>
+        <item>@raw/a146</item>
+        <item>@raw/a147</item>
+    </string-array>
 </resources>

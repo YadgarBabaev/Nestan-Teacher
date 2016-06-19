@@ -24,8 +24,8 @@ public class AlfavitPagerAdapter extends FragmentPagerAdapter {
     }
 
     private void setTitle(){
-        String[]alfavit=context.getResources().getStringArray(R.array.alfavit);
-        categoryTitle=new ArrayList<>(Arrays.asList(alfavit));
+        String[]alfavit = context.getResources().getStringArray(R.array.alfavit);
+        categoryTitle = new ArrayList<>(Arrays.asList(alfavit));
     }
 
     @Override
